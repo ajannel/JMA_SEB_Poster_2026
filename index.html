@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Joint Mobility Analysis Animations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #111827;
+    }
+
+    header {
+      background: #06142e;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 12px auto 0;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .viewer {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      background: black;
+    }
+
+    .caption {
+      margin-top: 15px;
+      line-height: 1.5;
+      color: #374151;
+    }
+
+    footer {
+      text-align: center;
+      color: #6b7280;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Joint Mobility Analysis Animations</h1>
+    <p>
+      Supplementary animations showing viable joint poses generated from the Joint Mobility Analysis workflow.
+    </p>
+  </header>
+
+  <main>
+    <div class="buttons">
+      <button onclick="loadVideo('Hip', 'videos/hip.mp4')">Hip</button>
+      <button onclick="loadVideo('Knee', 'videos/knee.mp4')">Knee</button>
+      <button onclick="loadVideo('Ankle', 'videos/ankle.mp4')">Ankle</button>
+      <button onclick="loadVideo('MTP', 'videos/mtp.mp4')">MTP</button>
+    </div>
+
+    <section class="viewer">
+      <h2 id="joint-title">Hip</h2>
+
+      <video id="rom-video" controls playsinline loop>
+        <source src="videos/hip.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+
+      <p class="caption" id="caption">
+        Hip ROM animation generated from the viable-pose CSV output.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Joint Mobility Analysis poster companion page
+  </footer>
+
+  <script>
+    function loadVideo(jointName, videoPath) {
+      const video = document.getElementById("rom-video");
+      const source = video.querySelector("source");
+      const title = document.getElementById("joint-title");
+      const caption = document.getElementById("caption");
+
+      title.textContent = jointName;
+      source.src = videoPath;
+      video.load();
+
+      caption.textContent = jointName + " ROM animation generated from the viable-pose CSV output.";
+    }
+  </script>
+</body>
+</html>
