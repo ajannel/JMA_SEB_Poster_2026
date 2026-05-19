@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Joint Mobility Analysis Animations</title>
+  <title>Joint Mobility Analysis (JMA) Animations</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -89,9 +89,10 @@
 
 <body>
   <header>
-    <h1>Joint Mobility Analysis Animations</h1>
+    <h1>Joint Mobility Analysis (JMA) Animations</h1>
     <p>
-      Supplementary animations showing viable joint poses generated from the Joint Mobility Analysis workflow.
+      for the SEB 2026 poster Jannel et al "Articulating the Past: An integrated workflow for quantitative joint mobility analysis in extant and extinct vertebrates"
+      Animations showing viable joint poses generated from the Joint Mobility Analysis workflow.
     </p>
   </header>
 
@@ -100,19 +101,19 @@
       <button onclick="loadVideo('Hip L', 'videos/hip_L.mp4')">Hip L</button>
       <button onclick="loadVideo('Knee L', 'videos/knee_L.mp4')">Knee L</button>
       <button onclick="loadVideo('Ankle L', 'videos/ankle_L.mp4')">Ankle L</button>
-      <button onclick="loadVideo('TMT3 L', 'videos/TMT3_L.mp4')">TMT3 L</button>
+      <button onclick="loadVideo('TMT3 L', 'videos/tmt3_L.mp4')">TMT3 L</button>
     </div>
 
     <section class="viewer">
-      <h2 id="joint-title">Knee L</h2>
+      <h2 id="joint-title">Hip L</h2>
 
       <video id="rom-video" controls playsinline loop>
-        <source src="videos/knee_L.mp4" type="video/mp4">
+        <source src="videos/hip_L.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
 
       <p class="caption" id="caption">
-        Knee L ROM animation generated from the viable-pose CSV output.
+        Hip L JMA animation generated from the viable-pose CSV output.
       </p>
     </section>
   </main>
@@ -132,7 +133,7 @@
       source.src = videoPath;
       video.load();
 
-      caption.textContent = jointName + " ROM animation generated from the viable-pose CSV output.";
+      caption.textContent = jointName + " JMA animation generated from the viable-pose CSV output.";
     }
   </script>
 </body>
